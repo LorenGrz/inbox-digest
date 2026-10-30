@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Digest diario de Gmail + Calendar y clasificación del inbox, corriendo en GitHub Actions."
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "jinja2>=3.1.6",
+    "pydantic>=2.14.2",
+]
 
 [project.scripts]
 inbox-digest = "inbox_digest.main:cli"
