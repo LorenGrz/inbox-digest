@@ -2,7 +2,7 @@ name: Refactor
 description: Restructure existing code without changing behavior.
 title: "refactor: "
 labels: [refactor]
-projects: ["LorenGrz/TBD"]
+projects: ["LorenGrz/3"]
 body:
   - type: textarea
     id: motivation

@@ -123,4 +123,4 @@ Mechanical rules live in `pyproject.toml` (ruff, mypy) and `.github/workflows/ci
 
 ## Project backlog
 
-https://github.com/users/LorenGrz/projects/TBD
+https://github.com/users/LorenGrz/projects/3

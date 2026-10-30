@@ -2,7 +2,7 @@ name: Bug fix
 description: Something is broken.
 title: "fix: "
 labels: [fix]
-projects: ["LorenGrz/TBD"]
+projects: ["LorenGrz/3"]
 body:
   - type: textarea
     id: repro

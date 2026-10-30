@@ -2,7 +2,7 @@ name: Feature
 description: A new capability or enhancement.
 title: "feat: "
 labels: [feat]
-projects: ["LorenGrz/TBD"]
+projects: ["LorenGrz/3"]
 body:
   - type: textarea
     id: description

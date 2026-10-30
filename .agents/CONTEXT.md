@@ -30,6 +30,6 @@ Ver "Reglas del proyecto" en AGENTS.md.
 
 - Owner: LorenGrz
 - Base branch: dev (main is release-only) — full git rules + where each is enforced: "Workflow contract" in AGENTS.md
-- Project number: TBD
+- Project number: 3
 
 Last validated: 2026-10-30
