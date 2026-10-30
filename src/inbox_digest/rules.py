@@ -9,7 +9,7 @@ import unicodedata
 from collections.abc import Callable
 from dataclasses import dataclass
 
-from inbox_digest.types import Bucket, Category, Classified, MailFacts
+from inbox_digest.models import Bucket, Category, Classified, MailFacts
 
 # Remitentes exactos que siempre quedan en Principal.
 ALWAYS_IMPORTANT_SENDERS: list[str] = [

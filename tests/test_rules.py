@@ -1,6 +1,7 @@
 import pytest
 from factories import mail_facts
 
+from inbox_digest.models import Bucket, MailFacts
 from inbox_digest.rules import (
     RULES,
     SELF_DIGEST_SUBJECT_PREFIX,
@@ -9,7 +10,6 @@ from inbox_digest.rules import (
     matches_domain,
     normalize_text,
 )
-from inbox_digest.types import Bucket, MailFacts
 
 
 def test_should_extract_domain_when_from_has_display_name() -> None:

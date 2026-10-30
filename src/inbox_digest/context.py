@@ -8,8 +8,8 @@ import re
 from dataclasses import dataclass
 from datetime import datetime
 
+from inbox_digest.models import Classified, EventFacts, EventKind, Reminder
 from inbox_digest.rules import normalize_text
-from inbox_digest.types import Classified, EventFacts, EventKind, Reminder
 
 # Cuántos días antes avisar, según qué tan importante sea el evento.
 _REMINDER_OFFSETS: dict[EventKind, list[int]] = {

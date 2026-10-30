@@ -3,8 +3,8 @@ from datetime import datetime
 from factories import art, classified, digest, event
 
 from inbox_digest.config import FEEDBACK_LABEL, TIMEZONE
+from inbox_digest.models import AiSummary, Classified, Reminder
 from inbox_digest.render import render_digest, rule_summary
-from inbox_digest.types import AiSummary, Classified, Reminder
 
 # El 29/09 del mail real, en ART. CORDOBA es un viaje de varios días, como en el
 # calendario real.

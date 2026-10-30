@@ -16,8 +16,8 @@ import re
 from dataclasses import dataclass, field, replace
 from typing import Protocol
 
+from inbox_digest.models import Bucket, Category, Classified
 from inbox_digest.rules import domain_of, normalize_text
-from inbox_digest.types import Bucket, Category, Classified
 
 # Un click explícito pesa 1; un mail mostrado y no apretado, esto.
 IMPLICIT_WEIGHT = 0.5

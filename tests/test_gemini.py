@@ -11,8 +11,8 @@ from inbox_digest.gemini import (
     sanitize_text,
     thinking_config,
 )
+from inbox_digest.models import AiGroup, AiItem, AiSummary
 from inbox_digest.render import groups_with_rest, highlight_indexes, render_digest
-from inbox_digest.types import AiGroup, AiItem, AiSummary
 
 
 def dumps(value: object) -> str:

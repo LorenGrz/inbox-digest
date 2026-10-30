@@ -3,7 +3,7 @@
 from datetime import datetime, timedelta
 
 from inbox_digest.config import TIMEZONE
-from inbox_digest.types import EventFacts
+from inbox_digest.models import EventFacts
 
 _DIAS = ("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado")
 _MESES = (

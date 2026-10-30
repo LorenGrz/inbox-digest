@@ -17,9 +17,9 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from inbox_digest.config import FEEDBACK_LABEL, TIMEZONE
 from inbox_digest.context import relative_time
 from inbox_digest.gemini import MAX_HIGHLIGHTS
+from inbox_digest.models import AiGroup, AiItem, Classified, DigestModel, EventFacts
 from inbox_digest.rules import CATEGORY_LABELS, CATEGORY_PRIORITY
 from inbox_digest.timeutil import event_time_label, is_multi_day
-from inbox_digest.types import AiGroup, AiItem, Classified, DigestModel, EventFacts
 
 # Un color por categoría, para el avatar. Suficiente contraste sobre blanco.
 _CATEGORY_COLORS: dict[str, str] = {

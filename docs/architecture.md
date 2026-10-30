@@ -21,7 +21,7 @@ opcionalmente resumen con Gemini, y guardan estado en un Google Sheet editable a
 
 Sheet con tres pestañas (las mismas que DailyReminderBot): `reminders` (recordatorios
 enviados), `applications` (postulaciones), `feedback` (ejemplos de entrenamiento). Tipos en
-`src/inbox_digest/types.py`.
+`src/inbox_digest/models.py`.
 
 ## Key flows
 

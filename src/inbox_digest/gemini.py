@@ -18,8 +18,8 @@ from typing import Final
 
 from pydantic import BaseModel, Field, StrictInt, StrictStr, TypeAdapter, ValidationError
 
+from inbox_digest.models import AiGroup, AiItem, AiSummary, DigestModel
 from inbox_digest.timeutil import event_time_label
-from inbox_digest.types import AiGroup, AiItem, AiSummary, DigestModel
 
 # Topes de longitud: un modelo confundido no puede inflar el mail.
 MAX_SUMMARY: Final = 1200

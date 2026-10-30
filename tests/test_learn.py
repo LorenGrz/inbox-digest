@@ -14,7 +14,7 @@ from inbox_digest.learn import (
     predict,
     train,
 )
-from inbox_digest.types import Bucket, Category
+from inbox_digest.models import Bucket, Category
 
 
 def example(

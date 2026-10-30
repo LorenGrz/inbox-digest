@@ -7,7 +7,7 @@ formateaba en UTC): `art(2026, 10, 29, 18, 30)` se muestra como "18:30".
 from datetime import datetime
 
 from inbox_digest.config import TIMEZONE
-from inbox_digest.types import (
+from inbox_digest.models import (
     AiSummary,
     Application,
     Bucket,
