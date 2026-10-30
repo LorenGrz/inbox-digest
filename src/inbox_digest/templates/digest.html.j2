@@ -1,0 +1,102 @@
+{#- Layout del digest. Tablas y CSS inline: Gmail descarta <style>. Autoescape activo. -#}
+{% set INK = '#1a1a1a' %}
+{% set MUTED = '#6b7280' %}
+{% set ACCENT = '#2563eb' %}
+{% set BORDER = '#e5e7eb' %}
+{% set CARD_BG = '#ffffff' %}
+{% set PAGE_BG = '#f6f7f8' %}
+{% set FONT = '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' %}
+
+{% macro section(title) %}
+    <tr><td style="padding:24px 0 8px 0;">
+      <div style="font:600 13px/1.4 -apple-system,Segoe UI,Roboto,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:{{ MUTED }};">{{ title }}</div>
+    </td></tr>
+    <tr><td style="padding-bottom:4px;">{{ caller() }}</td></tr>
+{% endmacro %}
+
+{% macro line(text) %}<div style="font:400 13px/1.6 -apple-system,Segoe UI,Roboto,sans-serif;color:{{ MUTED }};padding:4px 0;">{{ text }}</div>{% endmacro %}
+
+<!doctype html>
+<html><body style="margin:0;padding:0;background:{{ PAGE_BG }};">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:{{ PAGE_BG }};">
+    <tr><td align="center" style="padding:16px 8px;">
+      <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
+        <tr><td style="padding:8px 4px 16px 4px;">
+          <div style="font:700 24px/1.25 {{ FONT }};color:{{ INK }};">{{ date }}</div>
+          <div style="margin-top:4px;font:400 14px/1.4 {{ FONT }};color:{{ MUTED }};">{{ counts }}</div>
+        </td></tr>
+        <tr><td style="padding:0 0 4px 0;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:{{ CARD_BG }};border:1px solid {{ BORDER }};border-radius:8px;">
+            <tr><td style="padding:16px 18px;">
+              <div style="font:700 12px/1.4 {{ FONT }};color:{{ ACCENT }};text-transform:uppercase;letter-spacing:.06em;">Tu día en breve</div>
+              <div style="margin-top:8px;font:400 15px/1.65 {{ FONT }};color:{{ INK }};">{% for p in summary_paragraphs %}{% if not loop.first %}<br><br>{% endif %}{{ p }}{% endfor %}</div>
+            </td></tr>
+          </table>
+        </td></tr>
+{% call section('Agenda de hoy') %}
+{% for event in today %}
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 10px 0;background:{{ CARD_BG }};border:1px solid {{ BORDER }};border-radius:8px;">
+    <tr>
+      <td width="4" style="width:4px;background:{{ ACCENT }};border-radius:8px 0 0 8px;font-size:0;line-height:0;">&nbsp;</td>
+      <td style="padding:12px 16px;">
+        <div style="font:600 13px/1.4 {{ FONT }};color:{{ ACCENT }};letter-spacing:.02em;">{{ event.time }}</div>
+        <div style="margin-top:4px;font:700 15px/1.4 {{ FONT }};color:{{ INK }};">{{ event.title }}{% if event.badge %}<span style="display:inline-block;margin-left:8px;padding:2px 8px;border-radius:10px;background:#eff6ff;color:{{ ACCENT }};font:600 11px/1.6 {{ FONT }};">{{ event.badge }}</span>{% endif %}</div>
+        {% if event.location %}<div style="margin-top:4px;font:400 13px/1.5 {{ FONT }};color:{{ MUTED }};">{{ event.location }}</div>{% endif %}
+
+      </td>
+    </tr>
+  </table>
+{% else %}
+{{ line('Sin eventos hoy.') }}
+{% endfor %}
+{% endcall %}
+{% call section('Lo más importante') %}
+{% for card in cards %}
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 12px 0;background:{{ CARD_BG }};border:1px solid {{ BORDER }};border-radius:8px;">
+    <tr><td style="padding:14px 16px;">
+      <table width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td width="32" valign="top" style="width:32px;padding-right:10px;"><table cellpadding="0" cellspacing="0" style="border-collapse:separate;"><tr>
+          <td width="32" height="32" align="center" valign="middle" style="width:32px;height:32px;background:{{ card.color }};border-radius:16px;font:700 14px/32px {{ FONT }};color:#ffffff;text-align:center;">{{ card.letter }}</td>
+        </tr></table></td>
+        <td valign="middle" style="font:600 13px/1.4 {{ FONT }};color:{{ INK }};">
+          {{ card.name }}
+          <div style="font:400 12px/1.4 {{ FONT }};color:{{ MUTED }};padding-top:2px;">{{ card.domain }}{% if card.when %} · {{ card.when }}{% endif %}</div>
+        </td>
+      </tr></table>
+      <div style="margin-top:10px;">
+        <a href="{{ card.link }}" style="font:700 16px/1.35 {{ FONT }};color:{{ INK }};text-decoration:none;">{{ card.subject }}</a>
+      </div>
+      {% if card.snippet %}<div style="margin-top:6px;font:400 14px/1.55 {{ FONT }};color:#4b5563;">{{ card.snippet }}</div>{% endif %}
+
+      {% if card.note %}<div style="margin-top:10px;padding:8px 10px;background:#eff6ff;border-radius:6px;font:500 13px/1.5 {{ FONT }};color:{{ ACCENT }};">{{ card.note }}</div>{% endif %}
+
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;border-top:1px solid {{ BORDER }};"><tr>
+        <td style="padding-top:10px;font:500 12px/1.4 {{ FONT }};color:{{ MUTED }};">{{ card.label }}</td>
+        <td align="right" style="padding-top:10px;font:600 12px/1.4 {{ FONT }};">
+          <a href="{{ card.link }}" style="color:{{ ACCENT }};text-decoration:none;">Abrir →</a>
+        </td>
+      </tr></table>
+    </td></tr>
+  </table>
+{% endfor %}
+{% if rest_line %}{{ line(rest_line) }}{% elif not cards %}{{ line('Nada que requiera tu atención.') }}{% endif %}
+{% endcall %}
+{% if reminders %}
+{% call section('Se viene') %}{% for text in reminders %}{{ line(text) }}{% endfor %}{% endcall %}
+{% endif %}
+{% if applications %}
+{% call section('Postulaciones sin respuesta') %}{% for text in applications %}{{ line(text) }}{% endfor %}{% endcall %}
+{% endif %}
+        <tr><td style="padding:20px 4px 8px 4px;border-top:1px solid {{ BORDER }};">
+          <div style="font:400 12px/1.5 {{ FONT }};color:{{ MUTED }};padding-bottom:6px;">
+            ¿Algo no era importante? Ponele la etiqueta «{{ feedback_label }}» y aprendo.
+          </div>
+          <div style="font:400 11px/1.5 {{ FONT }};color:{{ MUTED }};">
+            inbox-digest · generado {{ generated }}{% if not has_ai %} · resumen sin IA{% endif %}
+
+          </div>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>
