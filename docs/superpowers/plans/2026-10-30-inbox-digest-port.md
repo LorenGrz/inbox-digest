@@ -37,7 +37,7 @@ hasta que el nuevo esté validado.
 ```
 src/inbox_digest/
   config.py      # env vars, TIMEZONE, LOOKAHEAD_DAYS, labels, modelo Gemini
-  types.py       # dataclasses: MailFacts, Classified, EventFacts, DigestModel...
+  models.py       # dataclasses: MailFacts, Classified, EventFacts, DigestModel...
   rules.py       # port 1:1 de src/rules.ts (el ORDEN de RULES es semántico)
   context.py     # port de src/context.ts
   learn.py       # port de src/learn.ts (Naive Bayes, umbrales 0.15/0.85, ≥5 por clase)
