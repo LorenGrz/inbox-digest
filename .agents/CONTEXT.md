@@ -16,7 +16,7 @@ See AGENTS.md for the full table (dev/test/lint/typecheck/format/format:check).
 
 ## Architecture
 
-Ver `docs/architecture.md`. Estado: fase 1 (scaffold) del plan `docs/superpowers/plans/2026-10-30-inbox-digest-port.md`.
+Ver `docs/architecture.md`. Estado: fases 1 y 2 hechas, fase 3 pendiente de credenciales GCP; ver `docs/plans/HANDOFF.md`.
 
 ## Conventions
 
@@ -32,4 +32,4 @@ Ver "Reglas del proyecto" en AGENTS.md.
 - Base branch: dev (main is release-only) — full git rules + where each is enforced: "Workflow contract" in AGENTS.md
 - Project number: 3
 
-Last validated: 2026-10-30
+Last validated: 2026-10-31
